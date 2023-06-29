@@ -1,4 +1,4 @@
-function searchCity(events) {
+function searchCity(event) {
   event.preventDefault();
   let city = document.querySelector("#search-input");
   let heading = document.querySelector("h1");
