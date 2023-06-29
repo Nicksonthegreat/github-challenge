@@ -1,0 +1,37 @@
+.card {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  margin-top: 200px;
+  padding: 25px 0px 25px 25px;
+  border: 4px solid #148fdb;
+}
+h1 {
+  padding-bottom: 5px;
+  font-size: 35px;
+}
+h2 {
+  font-size: 39px;
+}
+.today {
+  opacity: 0.9;
+  font-size: 14px;
+  padding-top: 5px;
+}
+.second {
+  padding-top: 30px;
+  text-align: center;
+  font-size: 17px;
+}
+.emoji {
+  font-size: 40px;
+  padding: 10px 0 10px 0;
+}
+.mb-3 {
+  width: 300px;
+}
+.units {
+  position: relative;
+  font-size: 17px;
+  top: -20px;
+}
