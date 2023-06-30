@@ -35,3 +35,7 @@ h2 {
   font-size: 17px;
   top: -20px;
 }
+small {
+  position: relative;
+  left: 260px;
+}
