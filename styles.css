@@ -10,7 +10,6 @@ body {
   border: 1px solid #148fdb;
 }
 h1 {
-  padding-bottom: 5px;
   text-transform: capitalize;
   font-size: 41px;
   font-weight: 550;
@@ -19,16 +18,18 @@ h2 {
   font-size: 46px;
   font-weight: 500;
 }
+li:first-letter {
+  text-transform: capitalize;
+}
 .today {
+  margin-top: 20px;
   opacity: 0.7;
   font-size: 15px;
   padding-top: 5px;
   line-height: 20px;
   list-style: none;
 }
-li:first-letter {
-  text-transform: capitalize;
-}
+
 .second {
   padding-top: 30px;
   text-align: center;
@@ -52,4 +53,8 @@ small {
   margin-left: 330px;
   margin-top: 10px;
   max-width: 100%;
+}
+#icon {
+  padding-top: 0%;
+  margin-top: 0%;
 }
