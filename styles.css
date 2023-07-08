@@ -22,10 +22,12 @@ h2 {
 .today {
   opacity: 0.7;
   font-size: 15px;
-  text-transform: capitalize;
   padding-top: 5px;
   line-height: 20px;
   list-style: none;
+}
+li:first-letter {
+  text-transform: capitalize;
 }
 .second {
   padding-top: 30px;
