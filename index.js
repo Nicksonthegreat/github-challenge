@@ -12,7 +12,15 @@ searchForm.addEventListener("submit", searchCity);
 
 function showTemperature(response) {
   let temperature = document.querySelector("#temperature");
+  let weatherDescription = document.querySelector(
+    "#current-weather-description"
+  );
+  let humidity = document.querySelector("#humidity");
+  let wind = document.querySelector("#wind");
   temperature.innerHTML = Math.round(response.data.main.temp);
+  weatherDescription.innerHTML = response.data.weather[0].description;
+  humidity.innerHTML = response.data.main.humidity;
+  wind.innerHTML = Math.round(response.data.wind.speed);
 }
 function showCurrentTemperature(response) {
   let temperature = document.querySelector("#temperature");
