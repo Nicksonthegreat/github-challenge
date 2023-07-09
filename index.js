@@ -41,7 +41,8 @@ function showTemperature(response) {
   let wind = document.querySelector("#wind");
   let dateElement = document.querySelector("#current-date");
   let icon = document.querySelector("#icon");
-  temperature.innerHTML = Math.round(response.data.main.temp);
+  let celsiusTemp = response.data.main.temp;
+  temperature.innerHTML = Math.round(celsiusTemp);
   weatherDescription.innerHTML = response.data.weather[0].description;
   humidity.innerHTML = response.data.main.humidity;
   wind.innerHTML = Math.round(response.data.wind.speed);
@@ -50,21 +51,19 @@ function showTemperature(response) {
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  function showFarenheitTemp(event) {
+    event.preventDefault();
+    let temperature = document.querySelector("#temperature");
+    let farenheitTemp = (celsiusTemp * 9) / 5 + 32;
+    temperature.innerHTML = Math.round(farenheitTemp);
+  }
+  function showCelsiusTemp(event) {
+    event.preventDefault();
+    let temperature = document.querySelector("#temperature");
+    temperature.innerHTML = Math.round(celsiusTemp);
+  }
+  let farenheitLink = document.querySelector("#farenheit");
+  farenheitLink.addEventListener("click", showFarenheitTemp);
+  let celsiusLink = document.querySelector("#celsius");
+  celsiusLink.addEventListener("click", showCelsiusTemp);
 }
-function showCurrentTemperature(response) {
-  let temperature = document.querySelector("#temperature");
-  temperature.innerHTML = Math.round(response.data.main.temp);
-}
-function showPosition(position) {
-  let latitude = position.coords.latitude;
-  let longitude = position.coords.longitude;
-  let apiKey = "9a4953a8b7e1fcdabe7af8869333e038";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showCurrentTemperature);
-}
-
-let currentTemperature = document.querySelector("#current-temp-button");
-currentTemperature.addEventListener(
-  "click",
-  navigator.geolocation.getCurrentPosition(showPosition)
-);
