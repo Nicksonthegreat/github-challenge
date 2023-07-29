@@ -30,10 +30,20 @@ li:first-letter {
   list-style: none;
 }
 
-.second {
+.weather-forecast {
   padding-top: 30px;
   text-align: center;
+  font-weight: bold;
+}
+.weather-forecast-date {
   font-size: 17px;
+}
+.weather-forecast-temperature-max {
+  font-size: 17px;
+}
+.weather-forecast-temperature-min {
+  font-size: 17px;
+  opacity: 0.8;
 }
 .emoji {
   font-size: 40px;
