@@ -32,6 +32,36 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day}, ${hours}:${minutes}`;
 }
+function showForecast(response) {
+  console.log(response.data.daily);
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row-second">`;
+  let days = ["Thu", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+            <div class="col-2">
+              <div class="weather-forecast-date">
+              Thu
+              </div>
+              <i
+                class="fa-solid fa-cloud-sun emoji"
+                style="color: #148fdb;"
+              ></i>
+              <div class="weather-forecast-temperatures">
+              <span class="weather-forecast-temperature-max"> 26°</span><span class="weather-forecast-temperature-min">/21° </span>
+            </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+function getForecast(coordinates) {
+  let apiKey = "9a4953a8b7e1fcdabe7af8869333e038";
+  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
+}
 function showTemperature(response) {
   let temperature = document.querySelector("#temperature");
   let weatherDescription = document.querySelector(
@@ -66,4 +96,5 @@ function showTemperature(response) {
   farenheitLink.addEventListener("click", showFarenheitTemp);
   let celsiusLink = document.querySelector("#celsius");
   celsiusLink.addEventListener("click", showCelsiusTemp);
+  getForecast(response.data.coord);
 }
